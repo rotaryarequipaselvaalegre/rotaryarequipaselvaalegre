@@ -14,6 +14,23 @@ body {
     line-height: 1.6;
 }
 
+/* MEJORA: Animación de aparición suave */
+@keyframes aparecerSuave {
+    from {
+        opacity: 0;
+        transform: translateY(25px); /* Empieza un poquito más abajo */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Sube a su posición normal */
+    }
+}
+
+/* Le aplicamos la magia a todo el contenido principal de la página */
+main {
+    animation: aparecerSuave 0.8s ease-out forwards;
+}
+
 /* Botón principal reutilizable en cualquier página */
 .boton-primario {
     display: inline-block;
@@ -531,14 +548,42 @@ nav ul li a:hover {
 }
 
 /* =========================================
-   7. PIE DE PÁGINA
+   7. PIE DE PÁGINA (CON REDES SOCIALES)
    ========================================= */
 footer {
-    text-align: center;
-    padding: 30px 20px;
     background-color: #333333;
     color: #FFFFFF;
-    font-size: 14px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-contenido {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-contenido p {
+    font-size: 15px;
+}
+
+.redes-sociales {
+    margin-top: 15px;
+}
+
+.redes-sociales a {
+    display: inline-block;
+    color: #F7A81B; /* Oro Rotary */
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.redes-sociales a:hover {
+    color: #FFFFFF; /* Se vuelve blanco al pasar el mouse */
+    transform: translateY(-3px); /* Da un pequeño saltito */
 }
 
 /* =========================================
@@ -691,8 +736,8 @@ footer {
         flex-direction: column; 
         gap: 40px;
     }
-	
-	/* Ajustes del Lightbox para celular */
+    
+    /* Ajustes del Lightbox para celular */
     .cerrar-modal {
         top: 10px;
         right: 20px;
