@@ -99,11 +99,13 @@ nav ul li a:hover {
 /* El primero (Nosotros) se alinea a la izquierda de su botón */
 .dropdown:nth-of-type(1) .dropdown-content {
     left: 0;
+    right: auto;
 }
 
 /* El último (Rotaract) se alinea a la derecha de su botón para no salirse de la pantalla */
 .dropdown:last-of-type .dropdown-content {
     right: 0;
+    left: auto;
 }
 
 .dropdown-content a {
