@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Noticias - Rotary Club Arequipa Selva Alegre</title>
+	<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+	<header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="Logo Rotary Club Arequipa Selva Alegre">
+            </a>
+        </div>
+        
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icono">☰</label>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Nosotros ▼</a>
+                    <div class="dropdown-content">
+                        <a href="nosotros.html">Nuestra Historia</a>
+                        <a href="hall-presidentes.html">Hall de Presidentes</a>
+                    </div>
+                </li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Rotaract ▼</a>
+                    <div class="dropdown-content">
+                        <a href="rotaract-sa.html">Rotaract Selva Alegre</a>
+                        <a href="rotaract-ak.html">Rotaract Arch Klumph</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+	
+	<main>
+        <section class="encabezado-interno">
+            <h2>Noticias y Comunicados</h2>
+            <p>Entérate de nuestras últimas actividades, campañas y eventos en la comunidad.</p>
+        </section>
+
+        <section style="max-width: 900px; margin: 60px auto; padding: 0 20px;">
+
+            <article class="tarjeta-noticia-horizontal" style="margin-bottom: 30px;">
+                <img src="noticia1.jpg" alt="Foto Visita Gobernadora Gloria" class="img-clic" onClick="abrirModal(this)">
+                <div class="info-noticia">
+                    <span class="fecha-noticia">26 de Marzo, 2026</span>
+                  <h4 style="font-size: 24px; color: #005DAA;">Visita oficial y nuevas incorporaciones en el Rotary Club Arequipa Selva Alegre</h4>
+                    <p>En el marco de su mes de aniversario, el Rotary Club Arequipa Selva Alegre recibió la visita oficial de la gobernadora del Distrito 4455, Gloria Lamas. La ceremonia fue presidida por el presidente del club, Jorge Meza, y contó con la participación de autoridades rotarias e integrantes de los clubes aliados.</p>
+					<p>Durante la jornada, se incorporaron dos nuevos socios, Alex Cuadros y Evelyn Oblitas, quienes asumen su compromiso de servicio con la institución.</p>
+              </div>
+          </article>
+
+            <article class="tarjeta-noticia-horizontal" style="margin-bottom: 30px;">
+                <img src="noticia2.jpg" alt="Rotary Selva Alegre apoyo a bomberos" class="img-clic" onClick="abrirModal(this)">
+                <div class="info-noticia">
+                    <span class="fecha-noticia">23 de marzo, 2026</span>
+                    <h4 style="font-size: 24px; color: #005DAA;">Rotary entrega apoyo a la Compañía de Bomberos Yanahuara 140</h4>
+                    <p>El pasado 11 de marzo, con la presencia de la gobernadora del Distrito 4455, Gloria Lamas, y representantes de clubes rotarios de Arequipa, se realizó la entrega de una Subvención de Respuesta ante Catástrofes a la Compañía de Bomberos Yanahuara 140.</p>
+					<p>Como parte de esta iniciativa, se entregaron siete bombas de lodo, siete generadores y cajas de mascarillas, fortaleciendo la capacidad de respuesta ante emergencias.</p>
+              </div>
+            </article>
+
+            <article class="tarjeta-noticia-horizontal" style="margin-bottom: 30px;">
+                <img src="noticia3.jpg" alt="Rotary Selva Alegre apoyo a CEBE y CEBA" class="img-clic" onClick="abrirModal(this)">
+                <div class="info-noticia">
+                    <span class="fecha-noticia">17 de Marzo, 2026</span>
+                    <h4 style="font-size: 24px; color: #005DAA;">Rotaract impulsa la educación con donación a instituciones de Arequipa</h4>
+                    <p>Con el objetivo de fortalecer la educación, los clubes Rotaract Arch Klumph y Rotaract Selva Alegre realizaron la donación de material didáctico, libros y mobiliario al CEBE y CEBA Polivalente Arequipa.</p>
+					<p>Asimismo, se destacó la participación del Rotary Club Arequipa Sur, que se sumó a esta iniciativa solidaria en beneficio de la comunidad educativa.</p>
+                </div>
+            </article>
+
+            <article class="tarjeta-noticia-horizontal" style="margin-bottom: 30px;">
+                <img src="noticia4.jpg" alt="Reunión mensual" class="img-clic" onClick="abrirModal(this)">
+                <div class="info-noticia">
+                    <span class="fecha-noticia">13 de Marzo, 2026</span>
+                    <h4 style="font-size: 24px; color: #005DAA;">Semana Mundial de Rotaract 2026: liderazgo y servicio en acción</h4>
+                    <p>Rotaract es una comunidad de jóvenes líderes que impulsan proyectos, fortalecen lazos de amistad y generan un impacto positivo en sus comunidades.</p>
+					<p>La Semana Mundial de Rotaract 2026 se celebrará del 9 al 15 de marzo, en conmemoración de la certificación del primer club Rotaract, realizada el 13 de marzo de 1968 en Carolina del Norte, Estados Unidos.</p>
+                </div>
+            </article>
+
+        </section>
+
+	</main>
+	
+	<footer>
+		<p>©2026 Rotary Club Arequipa Selva Alegre. Todos los derechos reservados</p>
+	</footer>
+	
+	<div id="modal-imagen" class="modal">
+		<span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+		<img class="modal-contenido" id="img-ampliada">
+	</div>
+
+	<script>
+		// Esta función toma la foto a la que le diste clic y la pone en el modal
+		function abrirModal(imagen) {
+			document.getElementById("modal-imagen").style.display = "block";
+			document.getElementById("img-ampliada").src = imagen.src;
+		}
+
+		// Esta función oculta el modal cuando le das a la X
+		function cerrarModal() {
+			document.getElementById("modal-imagen").style.display = "none";
+		}
+	</script>
+</body>
+</html>
