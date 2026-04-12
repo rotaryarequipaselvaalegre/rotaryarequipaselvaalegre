@@ -23,10 +23,17 @@ header {
     border-bottom: 1px solid #EEEEEE; /* Una línea muy sutil para separar el menú */
 }
 
-.logo h1 {
-    color: #005DAA; /* Azul oficial de Rotary */
-    font-size: 24px;
-    font-weight: bold;
+/* Ajuste para el nuevo logo en imagen */
+.logo img {
+    max-height: 50px; /* Puedes subir o bajar este número si lo quieres más grande o pequeño */
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease; /* Pequeña animación */
+}
+
+/* Efecto opcional: El logo hace un leve zoom al pasar el mouse */
+.logo img:hover {
+    transform: scale(1.05);
 }
 
 nav ul {
