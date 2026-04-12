@@ -361,6 +361,57 @@ footer {
 }
 
 /* =========================================
+   NUEVA SECCIÓN DE REUNIONES (En index.html)
+   ========================================= */
+.reuniones-inicio {
+    padding: 80px 20px;
+    background-color: #FFFFFF;
+}
+
+.contenedor-reuniones {
+    display: flex; /* Coloca los elementos uno al lado del otro en PC */
+    gap: 50px; /* Espacio entre el texto y el mapa */
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.datos-reunion, .mapa-reunion {
+    flex: 1; /* Ambas columnas toman el 50% del espacio */
+}
+
+.datos-reunion h3 {
+    color: #005DAA;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.datos-reunion p {
+    font-size: 18px;
+    color: #555555;
+    margin-bottom: 25px;
+}
+
+.lista-datos-inicio {
+    list-style: none;
+}
+
+.lista-datos-inicio li {
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+/* Diseño elegante para el cuadro del mapa */
+.mapa-reunion iframe {
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    display: block; /* Quita un pequeño margen invisible debajo del mapa */
+}
+
+/* =========================================
    18. DISEÑO RESPONSIVO (Solo Celulares - max 600px)
    ========================================= */
 @media (max-width: 600px) {
@@ -410,4 +461,9 @@ footer {
     .encabezado-interno h2 { font-size: 26px; }
     .contenedor-contacto { flex-direction: column; gap: 40px; margin: 40px auto; }
     .formulario-contacto { padding: 20px; }
+	
+	.contenedor-reuniones {
+        flex-direction: column; /* Apila el texto sobre el mapa en móviles */
+        gap: 40px;
+    }
 }
