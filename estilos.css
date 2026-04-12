@@ -1,4 +1,6 @@
-/* 1. CONFIGURACIÓN GENERAL (El lienzo) */
+/* =========================================
+   1. GLOBALES Y COMPONENTES BASE
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -6,66 +8,136 @@
 }
 
 body {
-    /* Usamos una fuente limpia y sin remates, ideal para el minimalismo */
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: #333333; /* Gris oscuro para el texto, cansa menos la vista que el negro puro */
-    background-color: #FFFFFF; /* Fondo blanco puro */
+    color: #333333;
+    background-color: #FFFFFF;
     line-height: 1.6;
 }
 
-/* 2. ENCABEZADO Y NAVEGACIÓN */
+/* Botón principal reutilizable en cualquier página */
+.boton-primario {
+    display: inline-block;
+    background-color: #F7A81B; 
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.boton-primario:hover {
+    background-color: #d98f14;
+}
+
+/* =========================================
+   2. ENCABEZADO Y NAVEGACIÓN (Diseño PC)
+   ========================================= */
 header {
     background-color: #FFFFFF;
     padding: 20px 50px;
-    display: flex; /* Esto pone el logo y el menú en la misma línea */
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #EEEEEE; /* Una línea muy sutil para separar el menú */
+    border-bottom: 1px solid #EEEEEE;
 }
 
-/* Ajuste para el nuevo logo en imagen */
 .logo img {
-    max-height: 50px; /* Puedes subir o bajar este número si lo quieres más grande o pequeño */
+    max-height: 50px;
     width: auto;
     display: block;
-    transition: transform 0.3s ease; /* Pequeña animación */
+    transition: transform 0.3s ease;
 }
 
-/* Efecto opcional: El logo hace un leve zoom al pasar el mouse */
 .logo img:hover {
     transform: scale(1.05);
 }
 
+/* Menú principal */
 nav ul {
-    list-style: none; /* Quita los puntos de la lista */
+    list-style: none;
     display: flex;
-    gap: 30px; /* Espacio entre los botones del menú */
+    gap: 30px;
 }
 
 nav ul li a {
-    text-decoration: none; /* Quita la línea de abajo de los enlaces */
+    text-decoration: none;
     color: #333333;
     font-size: 16px;
     font-weight: 500;
-    transition: color 0.3s; /* Efecto suave al pasar el mouse */
+    transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #005DAA; /* Se vuelve azul al pasar el cursor */
+    color: #005DAA;
 }
 
-/* 3. SECCIÓN HERO (Actualizado para usar Imagen de Fondo) */
+/* Menú Desplegable (Rotaract) */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    min-width: 240px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    z-index: 10;
+    top: 100%;
+    left: 0;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: #333333;
+    padding: 15px 20px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #EEEEEE;
+    font-size: 15px;
+}
+
+.dropdown-content a:hover {
+    background-color: #F9F9F9;
+    color: #005DAA;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Ocultar elementos del menú hamburguesa en PC */
+.menu-toggle {
+    display: none !important; 
+}
+
+.menu-icono {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #005DAA;
+}
+
+/* =========================================
+   3. SECCIONES: PÁGINA DE INICIO
+   ========================================= */
 .hero {
-    /* Gradiente lineal (capa negra al 40% opacidad) ENCIMA de la imagen */
     background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('20110217_HT_014.JPG'); 
-    background-size: cover; /* La imagen cubre todo el espacio */
-    background-position: center; /* La imagen se centra */
-    background-repeat: no-repeat; /* No se repite */
-    background-attachment: scroll; /* La imagen se mueve con el scroll (puedes cambiar a 'fixed' para un efecto parallax) */
-    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
     color: #FFFFFF;
     text-align: center;
-    padding: 120px 20px; /* Mantiene el espacio amplio */
+    padding: 120px 20px;
 }
 
 .hero h2 {
@@ -81,28 +153,10 @@ nav ul li a:hover {
     margin-right: auto;
 }
 
-/* 4. BOTÓN PRINCIPAL */
-.boton-primario {
-    display: inline-block;
-    background-color: #F7A81B; /* Oro oficial de Rotary */
-    color: #FFFFFF;
-    text-decoration: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 5px; /* Bordes ligeramente redondeados */
-    transition: background-color 0.3s;
-}
-
-.boton-primario:hover {
-    background-color: #d98f14; /* Un oro un poco más oscuro al pasar el cursor */
-}
-
-/* 5. SECCIÓN DE RESUMEN */
 .resumen-labor {
     text-align: center;
     padding: 80px 20px;
-    background-color: #FAFAFA; /* Un gris casi blanco para diferenciar del header */
+    background-color: #FAFAFA;
 }
 
 .resumen-labor h3 {
@@ -117,267 +171,21 @@ nav ul li a:hover {
     font-size: 18px;
 }
 
-/* 6. PIE DE PÁGINA (Footer) */
-footer {
-    text-align: center;
-    padding: 30px 20px;
-    background-color: #333333;
-    color: #FFFFFF;
-    font-size: 14px;
-}
-
-/* =========================================
-   ESTILOS PARA PÁGINA DE NOSOTROS
-   ========================================= */
-
-/* 7. ENCABEZADO INTERNO */
-.encabezado-interno {
-    background-color: #005DAA; /* Azul Rotary para mantener la identidad */
-    color: #FFFFFF;
-    text-align: center;
-    padding: 60px 20px; /* Es más delgado que el Hero de inicio */
-}
-
-.encabezado-interno h2 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-/* 8. DISEÑO EN DOS COLUMNAS (Texto + Imagen) */
-.contenido-texto {
-    display: flex; /* Esto coloca los elementos uno al lado del otro */
-    gap: 50px; /* Un espacio amplio y limpio entre texto e imagen */
-    max-width: 1100px; /* Evita que el contenido se estire a los bordes de la pantalla */
-    margin: 60px auto; /* Centra todo el bloque y da respiro arriba y abajo */
-    padding: 0 20px;
-    align-items: center; /* Centra la imagen y el texto verticalmente */
-}
-
-.columna {
-    flex: 1; /* Ambas columnas toman exactamente el 50% del espacio */
-}
-
-.columna h3 {
-    color: #005DAA;
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.columna p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #555555;
-}
-
-/* 9. ESTILO DE LAS IMÁGENES EN EL HTML */
-.columna img {
-    width: 100%; /* La imagen no se saldrá de su columna */
-    height: auto; /* Mantiene sus proporciones reales */
-    border-radius: 8px; /* Redondea las esquinas suavemente para un toque moderno */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Sombra elegante casi imperceptible */
-}
-
-/* 10. ADAPTACIÓN PARA TELÉFONOS (Diseño Responsivo) */
-@media (max-width: 768px) {
-    .contenido-texto {
-        flex-direction: column; /* En pantallas pequeñas, apila el texto sobre la foto */
-        gap: 30px;
-    }
-}
-
-/* =========================================
-   ESTILOS PARA LA PÁGINA DE PROYECTOS
-   ========================================= */
-
-/* 11. CONTENEDOR DE PROYECTOS (La cuadrícula) */
-.contenedor-proyectos {
-    display: grid;
-    /* Magia pura: crea columnas automáticas que no miden menos de 300px */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 40px; /* Espacio generoso entre cada tarjeta */
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 0 20px;
-}
-
-/* 12. TARJETAS INDIVIDUALES (Cards) */
-.tarjeta-proyecto {
-    background-color: #FFFFFF;
-    border-radius: 10px; /* Bordes suaves */
-    overflow: hidden; /* Asegura que la foto respete las esquinas redondeadas */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Sombra muy sutil */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Preparación para la animación */
-}
-
-/* Efecto interactivo al pasar el cursor (Hover) */
-.tarjeta-proyecto:hover {
-    transform: translateY(-10px); /* La tarjeta "levita" ligeramente */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* La sombra se intensifica */
-}
-
-/* Imagen de la tarjeta */
-.tarjeta-proyecto img {
-    width: 100%;
-    height: 220px; /* Todas las fotos tendrán la misma altura */
-    object-fit: cover; /* Recorta la foto proporcionalmente para que no se deforme */
-    border-bottom: 4px solid #005DAA; /* Una línea azul Rotary decorativa bajo la foto */
-}
-
-/* 13. TEXTOS Y ETIQUETAS DENTRO DE LA TARJETA */
-.info-proyecto {
-    padding: 30px 25px; /* Espacio interior para que el texto respire */
-}
-
-.etiqueta-area {
-    display: inline-block;
-    background-color: #F7A81B; /* Oro Rotary para resaltar el área de interés */
-    color: #FFFFFF;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 20px; /* Estilo de "píldora" */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-}
-
-.info-proyecto h3 {
-    color: #005DAA;
-    font-size: 22px;
-    margin-bottom: 15px;
-    line-height: 1.3;
-}
-
-.info-proyecto p {
-    color: #555555;
-    font-size: 16px;
-}
-
-/* =========================================
-   ESTILOS PARA LA PÁGINA DE CONTACTO
-   ========================================= */
-
-/* 14. CONTENEDOR PRINCIPAL DIVIDIDO EN DOS */
-.contenedor-contacto {
-    display: flex; /* Divide el espacio en dos columnas */
-    gap: 60px; /* Espacio amplio entre la info y el formulario */
-    max-width: 1000px; /* Un poco más angosto que los proyectos para que se vea más recogido */
-    margin: 80px auto;
-    padding: 0 20px;
-}
-
-/* Las dos mitades (Info y Formulario) */
-.info-contacto, .formulario-contacto {
-    flex: 1; /* Ambas toman el 50% del ancho disponible */
-}
-
-/* 15. ESTILOS DE LOS DATOS DE CONTACTO */
-.info-contacto h3 {
-    color: #005DAA;
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.info-contacto p {
-    font-size: 18px;
-    color: #555555;
-    margin-bottom: 30px;
-}
-
-.lista-datos {
-    list-style: none; /* Quita las viñetas por defecto */
-}
-
-.lista-datos li {
-    font-size: 16px;
-    color: #333333;
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #EEEEEE; /* Una línea muy fina para separar los datos */
-}
-
-/* 16. ESTILOS DEL FORMULARIO */
-.formulario-contacto {
-    background-color: #FAFAFA; /* Un gris sumamente claro para destacarlo del fondo blanco */
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Sombra suave para darle volumen */
-}
-
-.grupo-campo {
-    margin-bottom: 25px; /* Espacio entre cada pregunta del formulario */
-}
-
-.grupo-campo label {
-    display: block; /* Pone la etiqueta de texto sobre la caja, no a un lado */
-    font-size: 14px;
-    font-weight: bold;
-    color: #333333;
-    margin-bottom: 8px;
-}
-
-/* Estilo para las cajas de texto (inputs y textarea) */
-.grupo-campo input, 
-.grupo-campo textarea {
-    width: 100%; /* Las cajas ocupan todo el ancho del formulario */
-    padding: 12px 15px;
-    border: 1px solid #DDDDDD; /* Borde sutil */
-    border-radius: 5px; /* Esquinas ligeramente redondeadas */
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 16px;
-    color: #333333;
-    transition: border-color 0.3s ease; /* Efecto suave al hacer clic */
-}
-
-/* Efecto cuando el usuario hace clic dentro de la caja de texto */
-.grupo-campo input:focus, 
-.grupo-campo textarea:focus {
-    outline: none; /* Quita el borde azul feo por defecto del navegador */
-    border-color: #005DAA; /* Le pone un borde azul Rotary elegante */
-}
-
-/* Adaptamos el botón dorado para el formulario */
-.formulario-contacto button {
-    width: 100%; /* El botón ocupa todo el ancho */
-    cursor: pointer;
-    border: none; /* Quita bordes por defecto */
-    padding: 18px;
-}
-
-/* =========================================
-   MENÚ HAMBURGUESA (Configuración para PC)
-   ========================================= */
-/* Ocultamos la cajita del checkbox siempre */
-.menu-toggle {
-    display: none !important; 
-}
-
-/* Ocultamos las 3 rayitas en la computadora */
-.menu-icono {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: #005DAA; /* Azul Rotary */
-}
-
-/* =========================================
-   NUEVA SECCIÓN DE REUNIONES (En index.html)
-   ========================================= */
 .reuniones-inicio {
     padding: 80px 20px;
     background-color: #FFFFFF;
 }
 
 .contenedor-reuniones {
-    display: flex; /* Coloca los elementos uno al lado del otro en PC */
-    gap: 50px; /* Espacio entre el texto y el mapa */
+    display: flex;
+    gap: 50px;
     max-width: 1100px;
     margin: 0 auto;
     align-items: center;
 }
 
 .datos-reunion, .mapa-reunion {
-    flex: 1; /* Ambas columnas toman el 50% del espacio */
+    flex: 1;
 }
 
 .datos-reunion h3 {
@@ -404,89 +212,252 @@ footer {
     border-bottom: 1px solid #EEEEEE;
 }
 
-/* Diseño elegante para el cuadro del mapa */
 .mapa-reunion iframe {
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    display: block; /* Quita un pequeño margen invisible debajo del mapa */
+    display: block;
 }
 
 /* =========================================
-   MENÚ DESPLEGABLE (Dropdown Rotaract)
+   4. SECCIONES: NOSOTROS Y ROTARACT
    ========================================= */
-.dropdown {
-    position: relative;
-    display: inline-block;
+.encabezado-interno {
+    background-color: #005DAA;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 60px 20px;
 }
 
-.dropbtn {
-    cursor: default; /* Muestra el cursor normal porque es un menú, no un enlace directo */
+.encabezado-interno h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #FFFFFF;
-    min-width: 240px; /* Ancho de la cajita desplegable */
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    z-index: 10;
-    top: 100%;
-    left: 0;
-    overflow: hidden;
+.contenido-texto {
+    display: flex;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+    align-items: center;
 }
 
-.dropdown-content a {
-    color: #333333;
-    padding: 15px 20px;
-    text-decoration: none;
-    display: block;
-    border-bottom: 1px solid #EEEEEE;
-    font-size: 15px;
+.columna {
+    flex: 1;
 }
 
-/* Al pasar el mouse por las opciones */
-.dropdown-content a:hover {
-    background-color: #F9F9F9;
+.columna h3 {
     color: #005DAA;
+    font-size: 28px;
+    margin-bottom: 20px;
 }
 
-/* Mostrar la cajita al pasar el mouse por "Rotaract" */
-.dropdown:hover .dropdown-content {
-    display: block;
+.columna p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555555;
+}
+
+.columna img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 /* =========================================
-   18. DISEÑO RESPONSIVO (Solo Celulares - max 600px)
+   5. SECCIONES: PROYECTOS (Cuadrícula)
    ========================================= */
+.contenedor-proyectos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.tarjeta-proyecto {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-proyecto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.tarjeta-proyecto img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 4px solid #005DAA;
+}
+
+.info-proyecto {
+    padding: 30px 25px;
+}
+
+.etiqueta-area {
+    display: inline-block;
+    background-color: #F7A81B;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.info-proyecto h3 {
+    color: #005DAA;
+    font-size: 22px;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.info-proyecto p {
+    color: #555555;
+    font-size: 16px;
+}
+
+/* =========================================
+   6. SECCIONES: CONTACTO (Histórico)
+   ========================================= */
+.contenedor-contacto {
+    display: flex;
+    gap: 60px;
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.info-contacto, .formulario-contacto {
+    flex: 1;
+}
+
+.info-contacto h3 {
+    color: #005DAA;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.info-contacto p {
+    font-size: 18px;
+    color: #555555;
+    margin-bottom: 30px;
+}
+
+.lista-datos {
+    list-style: none;
+}
+
+.lista-datos li {
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.formulario-contacto {
+    background-color: #FAFAFA;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.grupo-campo {
+    margin-bottom: 25px;
+}
+
+.grupo-campo label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 8px;
+}
+
+.grupo-campo input, 
+.grupo-campo textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    color: #333333;
+    transition: border-color 0.3s ease;
+}
+
+.grupo-campo input:focus, 
+.grupo-campo textarea:focus {
+    outline: none;
+    border-color: #005DAA;
+}
+
+.formulario-contacto button {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    padding: 18px;
+}
+
+/* =========================================
+   7. PIE DE PÁGINA
+   ========================================= */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #333333;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   8. DISEÑO RESPONSIVO (SIEMPRE AL FINAL)
+   ========================================= */
+
+/* A. Ajustes para Tablets (Max 768px) */
+@media (max-width: 768px) {
+    .contenido-texto {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* B. Ajustes para Celulares (Max 600px) */
 @media (max-width: 600px) {
     
-    /* 1. Ajuste del Encabezado */
+    /* Encabezado y Menú Hamburguesa */
     header {
-        flex-wrap: wrap; /* Deja que el menú baje de renglón */
+        flex-wrap: wrap;
         padding: 15px 20px;
     }
 
-    /* 2. Mostramos el icono de las 3 rayitas */
     .menu-icono {
         display: block; 
     }
 
-    /* 3. ESCONDEMOS LAS PALABRAS DEL MENÚ CON FUERZA MAYOR */
     nav {
-        display: none !important; /* El important obliga a ocultarlo */
+        display: none !important; 
         width: 100%; 
         margin-top: 15px;
     }
 
-    /* 4. LA MAGIA: Al tocar el icono, aparecen las palabras */
     .menu-toggle:checked ~ nav {
-        display: block !important; /* Fuerza a mostrarlo al hacer clic */
+        display: block !important; 
     }
 
-    /* 5. Estilo de los botones cuando se abre el menú */
     nav ul {
-        flex-direction: column; /* Apila los botones uno debajo de otro */
+        flex-direction: column; 
         gap: 0;
     }
 
@@ -498,28 +469,30 @@ footer {
         text-align: center;
     }
 
-    /* Ajustes generales para celular (Textos más chicos) */
-    .hero { padding: 60px 20px; }
-    .hero h2 { font-size: 30px; }
-    .hero p { font-size: 16px; }
-    .encabezado-interno { padding: 40px 20px; }
-    .encabezado-interno h2 { font-size: 26px; }
-    .contenedor-contacto { flex-direction: column; gap: 40px; margin: 40px auto; }
-    .formulario-contacto { padding: 20px; }
-	
-	.contenedor-reuniones {
-        flex-direction: column; /* Apila el texto sobre el mapa en móviles */
-        gap: 40px;
-    }
-	
-	/* Ajustes del desplegable para celular */
+    /* Submenú Desplegable en Móvil */
     .dropdown-content {
-        position: relative; /* Quita el efecto "flotante" */
+        position: relative; 
         box-shadow: none;
-        background-color: #F1F1F1; /* Un gris sutil para que se note que es submenú */
+        background-color: #F1F1F1; 
         width: 100%;
     }
     .dropdown:hover .dropdown-content {
-        display: block; /* En móviles, al tocarlo se expande hacia abajo */
+        display: block; 
+    }
+
+    /* Ajustes generales de texto y espacios */
+    .hero { padding: 60px 20px; }
+    .hero h2 { font-size: 30px; }
+    .hero p { font-size: 16px; }
+    
+    .encabezado-interno { padding: 40px 20px; }
+    .encabezado-interno h2 { font-size: 26px; }
+    
+    .contenedor-contacto { flex-direction: column; gap: 40px; margin: 40px auto; }
+    .formulario-contacto { padding: 20px; }
+    
+    .contenedor-reuniones {
+        flex-direction: column; 
+        gap: 40px;
     }
 }
