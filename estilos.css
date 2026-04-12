@@ -230,6 +230,115 @@ nav ul li a:hover {
     display: block;
 }
 
+/* ESTILOS DE LA NUEVA SECCIÓN DIVIDIDA Y NOTICIAS */
+.seccion-dividida {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    align-items: flex-start;
+}
+
+.columna-izq {
+    flex: 0 0 35%;
+}
+
+.bloque-info {
+    background-color: #FAFAFA;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.bloque-info h3 {
+    color: #005DAA;
+    font-size: 22px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #F7A81B;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.bloque-info p { color: #555555; margin-bottom: 15px;}
+.mapa-pequeno iframe { border-radius: 8px; margin-top: 10px; display: block;}
+
+.columna-der {
+    flex: 1;
+}
+
+.encabezado-noticias {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #EEEEEE;
+    padding-bottom: 15px;
+}
+
+.encabezado-noticias h3 {
+    color: #005DAA;
+    font-size: 28px;
+}
+
+.enlace-ver-mas {
+    color: #F7A81B;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+.enlace-ver-mas:hover { color: #d98f14; }
+
+.tarjeta-noticia-horizontal {
+    display: flex;
+    background: #FFFFFF;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid #EEEEEE;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta-noticia-horizontal:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border-left: 4px solid #005DAA;
+}
+
+.tarjeta-noticia-horizontal img {
+    width: 220px;
+    object-fit: cover;
+}
+
+.info-noticia {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fecha-noticia {
+    color: #999999;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.info-noticia h4 { margin-bottom: 10px; }
+
+.info-noticia h4 a {
+    color: #333333;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.info-noticia h4 a:hover { color: #005DAA; }
+.info-noticia p { color: #666666; font-size: 15px; }
+
 /* =========================================
    4. SECCIONES: NOSOTROS Y ROTARACT
    ========================================= */
@@ -432,16 +541,91 @@ footer {
     font-size: 14px;
 }
 
+/* =========================================
+   EFECTO LIGHTBOX (Imágenes grandes al hacer clic)
+   ========================================= */
+
+/* Hace que el cursor cambie a una "manito" para que la gente sepa que se puede tocar */
+.img-clic {
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.img-clic:hover {
+    opacity: 0.8; /* Se aclara un poquito al pasar el mouse */
+}
+
+/* El fondo oscuro que cubre toda la pantalla */
+.modal {
+    display: none; /* Oculto por defecto, el JavaScript lo mostrará */
+    position: fixed;
+    z-index: 1000; /* Asegura que esté por encima del menú y todo lo demás */
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.85); /* Negro casi transparente */
+}
+
+/* La imagen ampliada en el centro */
+.modal-contenido {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 85vh; /* Evita que la foto sea más alta que tu pantalla */
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+    animation: zoom 0.3s; /* Efecto suave de aparición */
+}
+
+/* Animación para que la foto "salte" hacia ti */
+@keyframes zoom {
+    from {transform: scale(0.1)} 
+    to {transform: scale(1)}
+}
+
+/* El botón de la "X" para cerrar */
+.cerrar-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #FFFFFF;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.cerrar-modal:hover {
+    color: #F7A81B; /* Oro Rotary al pasar el mouse */
+}
 
 /* =========================================
    8. DISEÑO RESPONSIVO (SIEMPRE AL FINAL)
    ========================================= */
 
-/* A. Ajustes para Tablets (Max 768px) */
-@media (max-width: 768px) {
+/* A. Ajustes para Tablets (Max 900px) */
+@media (max-width: 900px) {
     .contenido-texto {
         flex-direction: column;
         gap: 30px;
+    }
+
+    /* ¡NUEVO! Ajuste de la sección dividida y noticias para tablets y móviles */
+    .seccion-dividida {
+        flex-direction: column;
+    }
+    .columna-izq, .columna-der {
+        flex: 1;
+        width: 100%;
+    }
+    .tarjeta-noticia-horizontal {
+        flex-direction: column;
+    }
+    .tarjeta-noticia-horizontal img {
+        width: 100%;
+        height: 250px;
     }
 }
 
@@ -506,5 +690,12 @@ footer {
     .contenedor-reuniones {
         flex-direction: column; 
         gap: 40px;
+    }
+	
+	/* Ajustes del Lightbox para celular */
+    .cerrar-modal {
+        top: 10px;
+        right: 20px;
+        font-size: 35px;
     }
 }
