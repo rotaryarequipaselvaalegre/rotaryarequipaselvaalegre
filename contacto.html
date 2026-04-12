@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,7 +50,7 @@
             </div>
 
             <div class="formulario-contacto">
-                <form action="#" method="post">
+                <form id="formulario-contacto">
                     
                     <div class="grupo-campo">
                         <label for="nombre">Nombre Completo:</label>
@@ -75,6 +77,41 @@
     <footer>
         <p>&copy; 2026 Club Rotario. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        const $form = document.querySelector('#formulario-contacto');
+
+        $form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData($form);
+            const data = {
+                nombre: formData.get('nombre'),
+                email: formData.get('email'),
+                mensaje: formData.get('mensaje')
+            };
+
+            try {
+                // Usando tu API de Sheet.best
+                const response = await fetch('https://api.sheetbest.com/sheets/3696bda5-b556-4bf8-bfd4-a46f1d072a6f', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    alert('¡Excelente! Los datos se han enviado al Club y se han registrado en Google Sheets.');
+                    $form.reset();
+                } else {
+                    alert('Error al enviar. Por favor, revisa la configuración de tu hoja de cálculo.');
+                }
+            } catch (error) {
+                alert('No se pudo conectar con el servidor. Inténtalo más tarde.');
+            }
+        });
+    </script>
 
 </body>
 </html>
