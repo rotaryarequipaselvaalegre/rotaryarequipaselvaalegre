@@ -161,7 +161,7 @@ nav ul li a:hover {
 .hero {
     background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('20110217_HT_014.JPG'); 
     background-size: cover;
-    background-position: center;
+    background-position: auto;
     background-repeat: no-repeat;
     background-attachment: scroll;
     color: #FFFFFF;
@@ -201,7 +201,7 @@ nav ul li a:hover {
 }
 
 .reuniones-inicio {
-    padding: 80px 20px;
+    padding: 20px 20px;
     background-color: #FFFFFF;
 }
 
@@ -355,6 +355,32 @@ nav ul li a:hover {
 
 .info-noticia h4 a:hover { color: #005DAA; }
 .info-noticia p { color: #666666; font-size: 15px; }
+
+/* Estilos para el bloque de Reconocimiento */
+.bloque-reconocimiento {
+    border: 1px solid #F7A81B; /* Un borde dorado sutil */
+    background-color: #FFF9F0; /* Un fondo crema muy suave */
+}
+
+.foto-reconocimiento {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.foto-reconocimiento img {
+    width: 100%;
+    max-width: 250px; /* Evita que la foto sea gigante */
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 2px solid #FFFFFF;
+}
+
+.nota-reconocimiento {
+    font-size: 14px;
+    font-style: italic;
+    color: #777777;
+    margin-top: 10px;
+}
 
 /* =========================================
    4. SECCIONES: NOSOTROS Y ROTARACT
@@ -553,7 +579,7 @@ nav ul li a:hover {
 footer {
     background-color: #333333;
     color: #FFFFFF;
-    padding: 40px 20px;
+    padding: auto 20px;
     text-align: center;
 }
 
