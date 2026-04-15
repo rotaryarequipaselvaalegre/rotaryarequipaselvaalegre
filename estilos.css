@@ -673,7 +673,53 @@ footer {
 }
 
 /* =========================================
-   8. DISEÑO RESPONSIVO (SIEMPRE AL FINAL)
+   8. CARRUSEL DESLIZABLE (Scroll Snap)
+   ========================================= */
+.carrusel-contenedor {
+    margin: 20px 0;
+}
+
+.carrusel-deslizable {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 15px; /* Da espacio para la barrita de abajo */
+    
+    /* Esta es la magia que hace que las fotos se "peguen" al deslizar */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    
+    /* Estilo de la barrita en navegadores modernos */
+    scrollbar-width: thin;
+    scrollbar-color: #005DAA #EEEEEE;
+}
+
+/* Diseño de la barra deslizante para Chrome/Edge/Safari */
+.carrusel-deslizable::-webkit-scrollbar {
+    height: 8px;
+}
+.carrusel-deslizable::-webkit-scrollbar-track {
+    background: #EEEEEE;
+    border-radius: 4px;
+}
+.carrusel-deslizable::-webkit-scrollbar-thumb {
+    background: #005DAA;
+    border-radius: 4px;
+}
+
+.carrusel-deslizable img {
+    /* Cada foto ocupa el 80% del ancho, para que la siguiente asome un poquito e invite a deslizar */
+    flex: 0 0 75%; 
+    max-width: 350px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+    scroll-snap-align: center; /* Centra la foto perfectamente al soltarla */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   9. DISEÑO RESPONSIVO (SIEMPRE AL FINAL)
    ========================================= */
 
 /* A. Ajustes para Tablets (Max 900px) */
